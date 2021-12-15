@@ -213,7 +213,7 @@ small {
 ///////// Buttons //////////
 
 .dropdown-toggle::after {
-  background: url("../public/images/e-commerce/chevron-down-header.svg");
+  background: url("../public/images/workspace/chevron-down-header.svg");
   -webkit-appearance: none;
   vertical-align: -2px;
   border: none;
@@ -332,7 +332,7 @@ small {
       color: theme-color("primary") !important;
     }
     .dropdown-toggle::after {
-      background: url("../public/images/e-commerce/chevron-down-header-active.svg");
+      background: url("../public/images/workspace/chevron-down-header-active.svg");
     }
   }
 }
@@ -932,7 +932,7 @@ input::placeholder {
 }
 
 select.form-control {
-  background: url("../public/images/e-commerce/chevron-down.svg") no-repeat right;
+  background: url("../public/images/workspace/chevron-down.svg") no-repeat right;
   -webkit-appearance: none;
   background-position: calc(100% - 15px);
   background-color: $white;
@@ -1009,13 +1009,13 @@ select.form-control {
 .carousel-control-prev-icon {
   width: 32px;
   height: 62px;
-  background-image: url("../public/images/e-commerce/sliderprevicon.svg");
+  background-image: url("../public/images/workspace/sliderprevicon.svg");
 }
 
 .carousel-control-next-icon {
   width: 32px;
   height: 62px;
-  background-image: url("../public/images/e-commerce/slidernexticon.svg");
+  background-image: url("../public/images/workspace/slidernexticon.svg");
 }
 
 // range

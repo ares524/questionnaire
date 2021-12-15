@@ -1,7 +1,7 @@
 import React from "react";
 import Link from 'next/link';
 import { Container, Row, Col, Button } from "reactstrap";
-import img from "public/images/e-commerce/404/404.png";
+import img from "public/images/workspace/404/404.png";
 import s from "pages/error/Error.module.scss";
 import Head from "next/head";
 

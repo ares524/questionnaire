@@ -61,7 +61,7 @@
 .dropdownItem {
   margin: 7px 0;
   &Img {
-    background: url("../../../public/images/e-commerce/header/chevron-down.svg") no-repeat center;
+    background: url("../../../public/images/workspace/header/chevron-down.svg") no-repeat center;
     width: 24px;
     height: 24px;
   }
@@ -86,7 +86,7 @@
       color: theme-color("primary");
     }
     .dropdownItemImg {
-      background: url("../../../public/images/e-commerce/header/chevron-down-active.svg") no-repeat center;
+      background: url("../../../public/images/workspace/header/chevron-down-active.svg") no-repeat center;
       width: 24px;
       height: 24px;
     }

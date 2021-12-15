@@ -267,7 +267,7 @@ table > thead > tr > th {
 }
 
 input.card {
-  background: url("../public/images/e-commerce/credit-card.svg") no-repeat right;
+  background: url("../public/images/workspace/credit-card.svg") no-repeat right;
   -webkit-appearance: none;
   background-position: calc(100% - 15px);
   background-color: $white;
@@ -275,7 +275,7 @@ input.card {
 }
 
 input.search {
-  background: url("../public/images/e-commerce/search.svg") no-repeat right;
+  background: url("../public/images/workspace/search.svg") no-repeat right;
   background-size: 32px;
   -webkit-appearance: none;
   background-position: calc(100%) -4px;
@@ -294,7 +294,7 @@ input.search {
 }
 
 input.info {
-  background: url("../public/images/e-commerce/question-mark-circle.svg") no-repeat
+  background: url("../public/images/workspace/question-mark-circle.svg") no-repeat
     right;
   -webkit-appearance: none;
   background-position: calc(100% - 15px);

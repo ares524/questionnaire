@@ -7,7 +7,7 @@
 }
 
 .backgroundImage {
-  background-image: url('../public/images/e-commerce/login/bg.svg');
+  background-image: url('../public/images/workspace/login/bg.svg');
   background-size: cover;
 }
 
@@ -45,7 +45,7 @@
     z-index: 0 !important;
   }
   .arrowRight {
-    background: url("../public/images/e-commerce/home/arrow-right.svg");
+    background: url("../public/images/workspace/home/arrow-right.svg");
     width: 24px;
     height: 24px;
     position: relative;
@@ -53,7 +53,7 @@
     left: 0px;
   }
   .arrowLeft {
-    background: url("../public/images/e-commerce/home/arrow-left.svg");
+    background: url("../public/images/workspace/home/arrow-left.svg");
     width: 24px;
     height: 24px;
     position: relative;
@@ -65,7 +65,7 @@
   &:focus {
     .arrowRight {
       left: 8px;
-      background: url("../public/images/e-commerce/home/arrow-right-hover.svg");
+      background: url("../public/images/workspace/home/arrow-right-hover.svg");
     }
     .arrowLeft {
       left: 3px;
