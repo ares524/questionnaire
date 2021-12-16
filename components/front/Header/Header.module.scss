@@ -23,6 +23,15 @@
   }
 }
 
+.lang {
+  color: $white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
 // -------------------
 
 .nav__menuItem:hover {
@@ -142,5 +151,25 @@
   transform: translateX(-20px);
   &:hover {
     background: rgba(#000, 0.1);
+  }
+}
+
+.submitBtn {
+  background-color: rgb(60, 80, 116);
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  height: 3rem;
+  font-size: 1rem;
+  font-weight: 600;
+
+  & > * {
+    z-index: 1;
+  }
+  &::hover {
+    background-color: rgb(46, 61, 88) !important;
+  }
+  &::after {
+    background-color: rgb(46, 61, 88) !important;
+    z-index: 0 !important;
   }
 }

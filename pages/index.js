@@ -8,25 +8,44 @@ import {
   Button,
   Col,
   Row,
-  FormGroup,
-  Label,
   Input,
-  Form,
   Card,
   CardHeader,
   CardBody,
-  ListGroup, 
-  ListGroupItem
 } from "reactstrap";
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import config from "constants/config";
+import cache from "memory-cache";
+
+const { AnswerService } = require("m3o/answer");
+const answerService = new AnswerService(config.M3O_API_TOKEN);
 
 const Index = () => {
-  const [currentAnswer, setCurrentAnswer] = useState('Hello world');
+  const [currentAnswer, setCurrentAnswer] = useState(null);
+  const [currentQuestion, setCurrentQuestion] = useState('');
+
+  const { t } = useTranslation('common');
 
   useEffect(() => {
   }, []);
 
   const handleSubmit = () => {
-    alert('success');
+    async function askAquestion() {
+      const rsp = await answerService.question({
+        query: currentQuestion,
+      });
+      setCurrentAnswer(rsp);
+      cache.put(currentQuestion, rsp, config.hours * 1000 * 60 * 60);
+    }
+
+    const cachedResponse = cache.get(currentQuestion);
+
+    if (cachedResponse) {
+      setCurrentAnswer(cachedResponse);
+    } else {
+      askAquestion();
+    }
   }
 
   return (
@@ -51,23 +70,23 @@ const Index = () => {
                   <Row>
                     <Col sm="12" md={12} lg={6}>
                       <Card className="mt-5">
-                        <CardHeader> <h6 className={"fw-bold"}> Question </h6> </CardHeader>
+                        <CardHeader> <h6 className={`fw-bold ${s.cardHeaderTitle}`}> {t('question')} </h6> </CardHeader>
                         <CardBody style={{ height: "307px", overflow: "auto" }}>
                           <Input
                             type="textarea"
                             name="text"
-                            className="w-100 border-0"
+                            className={`w-100 border-0 ${s.cardContentText}`}
                             style={{ height: 200 }}
+                            value={currentQuestion}
+                            onChange={(e) => setCurrentQuestion(e.target.value)}
                           />
            
                           <Button
-                            outline
-                            color="primary"
-                            className={`text-uppercase mt-4 mr-auto fw-bold d-flex align-items-center ${s.viewMoreBtn} ml-auto`}
-                            style={{ backgroundColor: "black", borderColor: "black", color: "white" }}
+                            color="default"
+                            className={`text-uppercase mt-4 mr-auto fw-bold d-flex align-items-center ${s.submitBtn} ml-auto`}
                             onClick={() => handleSubmit()}
                           >
-                            <p className={"mb-0"}>Submit</p>{" "}
+                            <p className={`mb-0`}>{t('submit')}</p>{" "}
                           </Button>
                         </CardBody>
                       </Card>
@@ -75,9 +94,9 @@ const Index = () => {
                     </Col>
                     <Col sm="12" md={12} lg={6}>
                       <Card className="mt-5">
-                        <CardHeader> <h6 className={"fw-bold"}> Answer </h6> </CardHeader>
+                        <CardHeader> <h6 className={`fw-bold ${s.cardHeaderTitle}`}> {t('answer')} </h6> </CardHeader>
                         <CardBody style={{ height: "307px", overflow: "auto" }}>
-                          <p>{currentAnswer}</p>
+                          <p className={`${s.cardContentText}`}>{currentAnswer?.answer}</p>
                         </CardBody>
                       </Card>
                       
@@ -93,11 +112,10 @@ const Index = () => {
   );
 };
 
-export async function getServerSideProps(context) {
-
-  return {
-    props: { }, // will be passed to the page component as props
-  };
-}
+export const getStaticProps = async ({ locale }) => ({
+  props: {
+    ...await serverSideTranslations(locale, ['common']),
+  },
+})
 
 export default Index;

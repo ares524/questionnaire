@@ -3,10 +3,11 @@ import {
   Navbar,
   NavbarBrand,
   Container,
+  Button,
 } from "reactstrap";
 import Link from "next/link";
 import s from "./Header.module.scss";
-import { withRouter } from "next/router";
+import { withRouter, useRouter } from "next/router";
 import { connect } from "react-redux";
 
 class Header extends React.Component {
@@ -17,17 +18,26 @@ class Header extends React.Component {
       innerWidth: typeof window !== "undefined" && window.innerWidth,
     };
   }
-
+  
   render() {
     const { innerWidth } = this.state;
+
     return (
       <Navbar className={s.header}>
-        <Container className="justify-content-center">
+        <Container className="justify-content-between">
           <NavbarBrand className="d-flex">
-            <Link href={"/"}>
-              <span className={s.logoStyle}> Jurata Test Project </span>
+            <Link href={"/"} locale='de'>
+              <span className={s.logoStyle}> Jurata </span>
             </Link>
           </NavbarBrand>
+          <div>
+            <Link href={"/"} locale='en'>
+              <span className={s.lang}> Englsih </span>
+            </Link>
+            <Link href={"/"} locale='de'>
+              <span className={s.lang}> Dutch </span>
+            </Link> 
+          </div>
         </Container>
       </Navbar>
     );
