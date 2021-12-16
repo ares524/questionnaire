@@ -38,10 +38,10 @@ Note: If you are already running a webserver on port 80 (e.g. Macs usually have 
 
 ## Configuring
 
-If you configure a .env file (just copy [.env.example](https://github.com/sunshine1004-dev/questionnaire/.env.example) over to '.env' and 'env.local and then fill in the options) you can configure a range of options.
-
-## Further reading
+If you configure a .env file (just copy [.env.example](https://github.com/sunshine1004-dev/questionnaire/.env.example) over to '.env' and 'env.local' and then fill in the options) you can configure a range of options.
 
 ### Hosting options
 
 You can host your Next.js site with any hosting provider. It works great with providers like Vercel, Heroku, Amazon Web Service, Google Cloud Platform, Microsoft Azure, DigitalOcean and others.
+
+## Further reading
